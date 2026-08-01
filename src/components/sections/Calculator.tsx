@@ -12,8 +12,9 @@ import {
 import { rupees, rupeesCompact, units, years } from "../../lib/format";
 import { Section } from "../ui/Section";
 import { Reveal } from "../ui/Reveal";
-import { ConfirmBadge, ConfirmNotice } from "../ui/ConfirmBadge";
-import { type as t } from "../../lib/design";
+import { ConfirmNotice } from "../ui/ConfirmBadge";
+import { type as t, button } from "../../lib/design";
+import { cn } from "../../lib/utils";
 
 export type CalculatorVariant = "full" | "compact";
 
@@ -42,9 +43,11 @@ export function Calculator({ variant = "full" }: { variant?: CalculatorVariant }
     { label: "Payback period", value: years(r.paybackYears) },
   ];
 
+  // Compact (home) points deeper into the site — a lower-priority, secondary
+  // action. The full variant is the primary conversion: book a survey.
   const cta = compact
-    ? { label: "See the full breakdown", to: "/install" }
-    : { label: "Book a site survey", to: "/contact" };
+    ? { label: "See the full breakdown", to: "/install", variant: button.secondary }
+    : { label: "Book a site survey", to: "/contact", variant: button.primary };
 
   return (
     <Section
@@ -125,10 +128,7 @@ export function Calculator({ variant = "full" }: { variant?: CalculatorVariant }
               </dl>
             )}
 
-            <Link
-              to={cta.to}
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-solar-amber px-6 py-3 font-sans text-[13px] font-semibold text-ink transition-colors hover:bg-solar-amber-deep"
-            >
+            <Link to={cta.to} className={cn(button.base, button.md, cta.variant, "mt-8")}>
               {cta.label}
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
             </Link>
@@ -139,8 +139,8 @@ export function Calculator({ variant = "full" }: { variant?: CalculatorVariant }
                 assumptions.</strong>{" "}
                 Generation {generation.dailyYieldPerKw.value} kWh/kW/day, tariff ₹
                 {financials.tariffPerUnit.value}/kWh, installed cost {rupees(financials.installedCostPerKw.value)}/kW,
-                and the subsidy slabs are all <ConfirmBadge className="mx-0.5" /> pending
-                verification against pmsuryaghar.gov.in. Not a quotation.
+                and the subsidy slabs are all pending verification against
+                pmsuryaghar.gov.in. Not a quotation.
               </ConfirmNotice>
             )}
           </div>

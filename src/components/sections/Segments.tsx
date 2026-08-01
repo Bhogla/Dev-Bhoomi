@@ -6,7 +6,7 @@ import { segments } from "../../data/segments";
 import { Section } from "../ui/Section";
 import { Reveal } from "../ui/Reveal";
 import { cn } from "../../lib/utils";
-import { type as t } from "../../lib/design";
+import { type as t, button } from "../../lib/design";
 
 /**
  * Section 4. Deliberately not four identical cards with swapped icons —
@@ -94,10 +94,7 @@ export function Segments() {
             ))}
           </dl>
 
-          <Link
-            to={current.href}
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 font-sans text-[13px] font-semibold text-white transition-colors hover:bg-panel-blue-deep"
-          >
+          <Link to={current.href} className={cn(button.base, button.md, button.primary, "mt-6")}>
             {current.cta}
             <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
           </Link>

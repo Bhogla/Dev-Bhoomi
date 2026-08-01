@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { navItems, navCta } from "../data/nav";
 import { company } from "../data/company";
 import { cn } from "../lib/utils";
+import { button } from "../lib/design";
 
 /**
  * Persistent interior navigation.
@@ -66,7 +67,7 @@ export function TopBar() {
         <div className="flex items-center gap-2">
           <Link
             to={navCta.to}
-            className="hidden whitespace-nowrap rounded-full border border-slate-200/60 bg-white px-5 py-2 font-sans text-[12px] font-semibold text-[#0a1b33] shadow-sm transition-all hover:border-slate-300 sm:inline-flex"
+            className={cn(button.base, button.md, button.primary, "hidden whitespace-nowrap sm:inline-flex")}
           >
             {navCta.label}
           </Link>
@@ -115,7 +116,7 @@ export function TopBar() {
 
           <Link
             to={navCta.to}
-            className="mt-5 inline-flex w-full items-center justify-center rounded-full border border-slate-200/60 bg-white px-5 py-3 font-sans text-[13px] font-semibold text-[#0a1b33] shadow-sm"
+            className={cn(button.base, button.md, button.primary, "mt-5 w-full")}
           >
             {navCta.label}
           </Link>

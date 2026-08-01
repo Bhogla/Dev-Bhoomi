@@ -2,7 +2,7 @@ import { Check } from "lucide-react";
 import { amcCoverage, amcTerms, amcIntro } from "../../data/amc";
 import { Section } from "../ui/Section";
 import { Reveal } from "../ui/Reveal";
-import { ConfirmBadge, ConfirmNotice } from "../ui/ConfirmBadge";
+import { ConfirmNotice } from "../ui/ConfirmBadge";
 import { type as t } from "../../lib/design";
 
 /**
@@ -60,7 +60,6 @@ export function AmcService() {
                   <dt className="font-sans text-[14px] font-medium text-ink">{t.label}</dt>
                   <dd className="flex items-center gap-2">
                     <span className="font-sans text-[13px] text-ink-muted">{t.detail}</span>
-                    {!t.confirmed && <ConfirmBadge />}
                   </dd>
                 </div>
               ))}

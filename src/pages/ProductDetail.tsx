@@ -7,7 +7,8 @@ import { Reveal } from "../components/ui/Reveal";
 import { ConfirmNotice } from "../components/ui/ConfirmBadge";
 import { usePageMeta } from "../hooks/usePageMeta";
 import { NotFound } from "./NotFound";
-import { type as t } from "../lib/design";
+import { type as t, button } from "../lib/design";
+import { cn } from "../lib/utils";
 
 export function ProductDetail() {
   const { slug } = useParams();
@@ -95,10 +96,7 @@ export function ProductDetail() {
                   </div>
                 </dl>
 
-                <Link
-                  to="/contact"
-                  className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-solar-amber px-6 py-3 font-sans text-[13px] font-semibold text-ink transition-colors hover:bg-solar-amber-deep"
-                >
+                <Link to="/contact" className={cn(button.base, button.md, button.primary, "mt-7 w-full")}>
                   {productCta(product)}
                   <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                 </Link>

@@ -117,6 +117,27 @@ export const surface = {
 } as const;
 
 /* ------------------------------------------------------------------ *
+ * Buttons — one system, two variants.
+ *
+ * PRIMARY   dark-navy filled pill, white text. Every high-priority action:
+ *           the navbar CTA, the hero CTA, form submits, path cards.
+ * SECONDARY outlined pill on the raised surface, dark text. Lower-priority
+ *           actions only (see-more links, dismiss, in-card view).
+ *
+ * Padding, radius, weight and hover are fixed per variant — call sites add
+ * only layout extras (mt-*, w-full). `sm` is the compact in-card size; the
+ * default `md` is used for all standalone page CTAs. Focus rings come from
+ * the global :focus-visible rule in tokens.css.
+ * ------------------------------------------------------------------ */
+export const button = {
+  base: "inline-flex items-center justify-center gap-2 rounded-full font-sans font-semibold transition-all disabled:opacity-70",
+  md: "px-6 py-3 text-[13px]",
+  sm: "px-5 py-2.5 text-[13px]",
+  primary: "bg-ink text-white hover:bg-panel-blue-deep",
+  secondary: "border border-slate-200/60 bg-surface-raised text-ink shadow-sm hover:border-slate-300",
+} as const;
+
+/* ------------------------------------------------------------------ *
  * Vertical rhythm
  *
  * One section cadence sitewide so the page reads as a single document.

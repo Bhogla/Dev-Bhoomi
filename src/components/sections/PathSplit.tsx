@@ -1,18 +1,28 @@
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, House, Package } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import { Link } from "react-router";
 import { paths } from "../../data/paths";
 import { Section } from "../ui/Section";
 import { Reveal } from "../ui/Reveal";
 import { cn } from "../../lib/utils";
-import { type as t } from "../../lib/design";
+import { type as t, surface, button } from "../../lib/design";
 
 const MotionLink = motion.create(Link);
 
 /**
  * Section 3. The fork. Two audiences, two journeys, deliberately not blended:
- * the EPC card leads to survey/calculator, the trading card to the catalogue.
+ * the install card leads to survey/calculator, the buy card to the catalogue.
+ *
+ * The two cards are structurally identical and equally weighted — same
+ * surface, same icon slot, aligned bullets, identical primary CTA. Only the
+ * accent (icon colour + the top icon) differs, to signal which path is which.
  */
+
+const accent = {
+  installation: { Icon: House, tint: "bg-panel-blue/10 text-panel-blue" },
+  trading: { Icon: Package, tint: "bg-solar-amber/15 text-solar-amber-deep" },
+} as const;
+
 export function PathSplit() {
   const reduce = useReducedMotion();
 
@@ -25,7 +35,7 @@ export function PathSplit() {
     >
       <div className="grid gap-5 md:grid-cols-2 md:gap-6">
         {paths.map((path, i) => {
-          const isEpc = path.id === "installation";
+          const { Icon, tint } = accent[path.id];
           return (
             <Reveal key={path.id} delay={i * 0.08}>
               <MotionLink
@@ -33,52 +43,40 @@ export function PathSplit() {
                 whileHover={reduce ? undefined : { y: -4 }}
                 transition={{ duration: 0.25 }}
                 className={cn(
-                  "group flex h-full flex-col rounded-[32px] border p-7 md:p-9",
-                  "transition-colors duration-300",
-                  isEpc
-                    ? "border-transparent bg-ink text-white shadow-[0_24px_60px_-24px_rgba(10,27,51,0.35)]"
-                    : "border-slate-200/60 bg-surface-raised text-ink shadow-[0_24px_60px_-24px_rgba(10,27,51,0.06)] hover:border-slate-300",
+                  surface.panel,
+                  "group flex h-full flex-col p-7 transition-all duration-300 hover:border-slate-300 md:p-9",
                 )}
               >
-                <p className={t.eyebrow}>{path.audience}</p>
-
-                <h3
-                  className={cn(
-                    "mt-4 font-display text-[22px] md:text-[26px] font-medium leading-[1.25] tracking-tight",
-                    isEpc ? "text-white" : "text-ink",
-                  )}
+                <span
+                  className={cn("flex h-12 w-12 items-center justify-center rounded-2xl", tint)}
+                  aria-hidden="true"
                 >
-                  {path.title}
-                </h3>
+                  <Icon className="h-6 w-6" />
+                </span>
 
-                <p
-                  className={cn(
-                    "mt-3 max-w-[46ch] font-sans text-[14px] leading-relaxed",
-                    isEpc ? "text-slate-300" : "text-ink-muted",
-                  )}
-                >
+                <p className={cn(t.eyebrow, "mt-6")}>{path.audience}</p>
+
+                <h3 className={cn(t.subhead, "mt-3")}>{path.title}</h3>
+
+                <p className="mt-3 max-w-[46ch] font-sans text-[14px] leading-relaxed text-ink-muted">
                   {path.blurb}
                 </p>
 
                 <ul className="mt-6 flex flex-1 flex-col gap-2.5">
                   {path.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-2.5 font-sans text-[13px] leading-snug">
-                      <Check
-                        className="mt-0.5 h-3.5 w-3.5 shrink-0 text-panel-blue"
-                        aria-hidden="true"
-                      />
-                      <span className={isEpc ? "text-slate-200" : "text-ink"}>{b}</span>
+                    <li key={b} className="flex items-start gap-2.5 font-sans text-[13px] leading-snug text-ink">
+                      <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-panel-blue" aria-hidden="true" />
+                      <span>{b}</span>
                     </li>
                   ))}
                 </ul>
 
                 <span
                   className={cn(
-                    "mt-8 inline-flex w-fit items-center gap-2 rounded-full px-5 py-2.5",
-                    "font-sans text-[13px] font-semibold transition-all",
-                    isEpc
-                      ? "bg-solar-amber text-ink group-hover:bg-solar-amber-deep"
-                      : "border border-[var(--hairline)] bg-surface text-ink group-hover:border-panel-blue/50",
+                    button.base,
+                    button.md,
+                    button.primary,
+                    "mt-8 w-full group-hover:bg-panel-blue-deep",
                   )}
                 >
                   {path.cta}

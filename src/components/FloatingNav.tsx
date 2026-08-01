@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from "motion/react";
 import { Link } from "react-router";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Phone } from "lucide-react";
 import { heroActions } from "../data/hero";
 
 /**
@@ -26,11 +26,21 @@ export function FloatingNav() {
         initial={reduce ? false : { opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-        className="flex items-center bg-white/90 backdrop-blur-2xl px-1.5 py-1.5 rounded-full shadow-[0_12px_40px_rgba(0,0,0,0.08)] border border-slate-200/40"
+        className="flex items-center gap-1 bg-white/90 backdrop-blur-2xl px-1.5 py-1.5 rounded-full shadow-[0_12px_40px_rgba(0,0,0,0.08)] border border-slate-200/40"
       >
-        <div className="w-9 h-9 bg-white border border-slate-100 shadow-sm rounded-full flex items-center justify-center text-[#0a1b33] text-[13px] shrink-0">
-          ✦
-        </div>
+        <a
+          href="tel:+917818806374"
+          aria-label="Call Dev Bhoomi Enterprises"
+          className="w-9 h-9 bg-white border border-slate-100 shadow-sm rounded-full flex items-center justify-center text-[#0a1b33] text-[13px] shrink-0"
+        >
+          <Phone className="w-4 h-4" aria-hidden="true" />
+        </a>
+
+        {/* Divider marks the call action as distinct from the nav links. */}
+        <span
+          aria-hidden="true"
+          className="mx-1 h-5 w-px shrink-0 bg-slate-200/80"
+        />
 
         {heroActions.paths.map((path) => (
           <Link

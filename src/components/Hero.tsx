@@ -1,6 +1,8 @@
 import { motion, useReducedMotion } from "motion/react";
 import { heroCopy } from "../data/hero";
 import { FloatingNav } from "./FloatingNav";
+import { button } from "../lib/design";
+import { cn } from "../lib/utils";
 
 const HERO_VIDEO = "/assets/hero.MP4";
 
@@ -27,14 +29,9 @@ export function Hero() {
           {heroCopy.subheadline}
         </p>
 
-        <motion.button
-          type="button"
-          whileHover={reduce ? undefined : { scale: 1.04 }}
-          whileTap={reduce ? undefined : { scale: 0.97 }}
-          className="mt-8 bg-ink text-white rounded-full px-6 py-3 text-[13px] font-semibold"
-        >
+        <button type="button" className={cn(button.base, button.md, button.primary, "mt-8")}>
           {heroCopy.primaryCta}
-        </motion.button>
+        </button>
       </motion.div>
 
       {/* Media panel — the solar-neighbourhood video, shown crisp and un-cropped

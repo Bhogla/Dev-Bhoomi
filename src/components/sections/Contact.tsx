@@ -5,6 +5,8 @@ import { contactCopy, contactFields, mapEmbedSrc, mapLinkHref } from "../../data
 import { Section } from "../ui/Section";
 import { Reveal } from "../ui/Reveal";
 import { ConfirmNotice } from "../ui/ConfirmBadge";
+import { button } from "../../lib/design";
+import { cn } from "../../lib/utils";
 
 type Status = "idle" | "submitting" | "done";
 
@@ -50,7 +52,7 @@ export function Contact() {
               <button
                 type="button"
                 onClick={() => setStatus("idle")}
-                className="mt-6 rounded-full border border-slate-200/60 bg-surface-raised px-5 py-2.5 font-sans text-[13px] font-semibold text-ink shadow-sm transition-all hover:border-slate-300"
+                className={cn(button.base, button.md, button.secondary, "mt-6")}
               >
                 {contactCopy.successReset}
               </button>
@@ -101,7 +103,7 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={status === "submitting"}
-                className="mt-1 inline-flex w-fit items-center gap-2 rounded-full bg-solar-amber px-6 py-3 font-sans text-[13px] font-semibold text-ink transition-colors hover:bg-solar-amber-deep disabled:opacity-70"
+                className={cn(button.base, button.md, button.primary, "mt-1 w-fit")}
               >
                 {status === "submitting" ? contactCopy.submittingLabel : contactCopy.submitLabel}
                 <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />

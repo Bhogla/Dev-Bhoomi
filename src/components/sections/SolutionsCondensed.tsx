@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { segments } from "../../data/segments";
 import { Section } from "../ui/Section";
 import { Reveal } from "../ui/Reveal";
-import { type as t, surface } from "../../lib/design";
+import { type as t, surface, button } from "../../lib/design";
 import { cn } from "../../lib/utils";
 
 /**
@@ -19,10 +19,7 @@ export function SolutionsCondensed() {
       title="Four buyers, four different problems"
       lede="A homeowner asks about subsidy. A factory asks about uptime. Each is answered in its own place."
       headerAside={
-        <Link
-          to="/install"
-          className="inline-flex items-center gap-2 rounded-full border border-slate-200/60 bg-surface-raised px-5 py-2.5 font-sans text-[13px] font-semibold text-ink shadow-sm transition-all hover:border-slate-300"
-        >
+        <Link to="/install" className={cn(button.base, button.sm, button.secondary)}>
           See all solutions
           <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
         </Link>

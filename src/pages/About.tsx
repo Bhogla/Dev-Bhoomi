@@ -4,9 +4,9 @@ import { company, positioning, capabilities, turnover, trustStrip } from "../dat
 import { PageHero } from "../components/PageHero";
 import { Section } from "../components/ui/Section";
 import { Reveal } from "../components/ui/Reveal";
-import { ConfirmBadge, ConfirmNotice } from "../components/ui/ConfirmBadge";
+import { ConfirmNotice } from "../components/ui/ConfirmBadge";
 import { usePageMeta } from "../hooks/usePageMeta";
-import { type as t } from "../lib/design";
+import { type as t, button } from "../lib/design";
 import { cn } from "../lib/utils";
 
 export function About() {
@@ -104,7 +104,6 @@ export function About() {
                         <dt className="font-sans text-[13px] text-ink-muted">{row.label}</dt>
                         <dd className="flex items-center gap-2">
                           <span className="tnum font-sans text-[14px] font-semibold text-ink">{row.value}</span>
-                          {!row.confirmed && <ConfirmBadge />}
                         </dd>
                       </div>
                     ))}
@@ -134,10 +133,7 @@ export function About() {
                   </ConfirmNotice>
                 </div>
 
-                <Link
-                  to="/contact"
-                  className="inline-flex w-fit items-center gap-2 rounded-full bg-ink px-6 py-3 font-sans text-[13px] font-semibold text-white transition-colors hover:bg-panel-blue-deep"
-                >
+                <Link to="/contact" className={cn(button.base, button.md, button.primary, "w-fit")}>
                   Book a site survey
                   <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                 </Link>

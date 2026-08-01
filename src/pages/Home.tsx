@@ -21,14 +21,15 @@ export function Home() {
     <>
       {/*
         Top padding is tighter than the bottom: the sticky TopBar already
-        separates the hero from the top of the window, and at 1280x720 the
-        old md:py-12 pushed the 600px container past the fold.
-        Margin is thin — the bar grew to 80px to fit the full logo lockup,
-        leaving the hero ~15px of clearance at 1280x720. If the bar gets
-        taller again, take it out of this padding, never the hero's height.
-        Container height and radius are untouched.
+        separates the hero from the top of the window, and at 1280x720 a
+        larger top pad pushed the 600px container past the fold. Keep the top
+        thin — if the bar grows again, take it out of this padding, never the
+        hero's height.
+        Bottom padding matches the section scale (space.section), so the gap
+        from the marquee to the first section is the same even rhythm that runs
+        between every section below. Container height and radius are untouched.
       */}
-      <header className="w-full px-4 pt-5 pb-8 md:pt-6 md:pb-12">
+      <header className="w-full px-4 pt-5 pb-20 md:pt-6 md:pb-28">
         <Hero />
         <MarqueeScroller />
       </header>

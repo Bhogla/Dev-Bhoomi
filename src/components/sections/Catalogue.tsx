@@ -5,7 +5,7 @@ import { products, productCta, divisions } from "../../data/products";
 import { Section } from "../ui/Section";
 import { Reveal } from "../ui/Reveal";
 import { cn } from "../../lib/utils";
-import { type as t } from "../../lib/design";
+import { type as t, button } from "../../lib/design";
 
 const ALL = "All";
 
@@ -98,10 +98,7 @@ export function Catalogue() {
               />
 
               <div className="mt-auto flex flex-wrap items-center gap-2 pt-6">
-                <Link
-                  to={`/products/${p.slug}`}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-[var(--hairline)] bg-surface px-4 py-2 font-sans text-[12px] font-semibold text-ink transition-all hover:border-panel-blue/50"
-                >
+                <Link to={`/products/${p.slug}`} className={cn(button.base, button.sm, button.secondary)}>
                   {productCta(p)}
                   <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
                 </Link>

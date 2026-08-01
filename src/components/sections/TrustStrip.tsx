@@ -1,8 +1,7 @@
 import { trustStrip } from "../../data/company";
-import { ConfirmBadge } from "../ui/ConfirmBadge";
 import { Reveal } from "../ui/Reveal";
 import { cn } from "../../lib/utils";
-import { type as t } from "../../lib/design";
+import { type as t, space } from "../../lib/design";
 
 /**
  * Section 2. Three figures, tabular numerals, no animated counters.
@@ -14,7 +13,7 @@ import { type as t } from "../../lib/design";
 export function TrustStrip() {
   return (
     <section id="trust" className="w-full scroll-mt-24">
-      <div className="mx-auto w-full max-w-[1400px] px-5 py-12 md:px-10 md:py-16">
+      <div className={cn("mx-auto w-full max-w-[1400px]", space.gutter, space.section)}>
         <Reveal>
           <dl className="grid grid-cols-1 gap-x-10 gap-y-8 border-y border-[var(--hairline)] py-10 sm:grid-cols-3">
             {trustStrip.map((item) => {
@@ -40,7 +39,6 @@ export function TrustStrip() {
                   <dt className={t.figureLabel}>
                     {item.label}
                   </dt>
-                  {!item.confirmed && <ConfirmBadge className="self-start" />}
                 </div>
               );
             })}

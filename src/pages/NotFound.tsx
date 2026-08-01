@@ -5,6 +5,8 @@ import { PageHero } from "../components/PageHero";
 import { Section } from "../components/ui/Section";
 import { Reveal } from "../components/ui/Reveal";
 import { usePageMeta } from "../hooks/usePageMeta";
+import { button } from "../lib/design";
+import { cn } from "../lib/utils";
 
 export function NotFound() {
   usePageMeta("Page not found", "That page does not exist.");
@@ -40,10 +42,7 @@ export function NotFound() {
           </Reveal>
 
           <Reveal delay={0.08}>
-            <Link
-              to="/"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 font-sans text-[13px] font-semibold text-white transition-colors hover:bg-panel-blue-deep"
-            >
+            <Link to="/" className={cn(button.base, button.md, button.primary, "mt-8")}>
               Back to the home page
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
             </Link>
