@@ -1,6 +1,5 @@
 import { motion, useReducedMotion } from "motion/react";
 import { heroCopy } from "../data/hero";
-import { FloatingNav } from "./FloatingNav";
 import { button } from "../lib/design";
 import { cn } from "../lib/utils";
 
@@ -66,8 +65,6 @@ export function Hero() {
           }}
         />
       </div>
-
-      <FloatingNav />
     </section>
   );
 }

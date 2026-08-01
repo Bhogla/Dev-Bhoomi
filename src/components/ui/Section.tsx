@@ -50,7 +50,7 @@ export function Section({
         {(eyebrow || title || lede) && (
           <Reveal className={space.headerGap}>
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-              <div className="max-w-[680px]">
+              <div className="max-w-[860px]">
                 {eyebrow && (
                   <p className={cn(t.eyebrow, "mb-4")}>{eyebrow}</p>
                 )}

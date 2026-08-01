@@ -54,3 +54,25 @@ body {
   outline-offset: 3px;
   border-radius: 4px;
 }
+
+/* Header layout. Desktop keeps one row — logo · pill · CTA. On mobile the CTA
+   is hidden (booking stays reachable via the hero button and the floating call
+   button), so the logo and the nav pill share a single, tighter row. */
+.site-header-grid {
+  display: grid;
+  align-items: center;
+  column-gap: 0.5rem;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "logo pill";
+}
+.site-header-logo { grid-area: logo; }
+.site-header-cta { grid-area: cta; justify-self: end; }
+.site-header-pill { grid-area: pill; justify-self: center; min-width: 0; }
+
+@media (min-width: 768px) {
+  .site-header-grid {
+    column-gap: 0.75rem;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "logo pill cta";
+  }
+}

@@ -2,6 +2,7 @@ import { Outlet, ScrollRestoration } from "react-router";
 import { TopBar } from "../components/TopBar";
 import { Footer } from "../components/Footer";
 import { WhatsAppFloat } from "../components/WhatsAppFloat";
+import { CallFloat } from "../components/CallFloat";
 
 /**
  * Shell shared by every route, home included. One navigation treatment
@@ -14,6 +15,7 @@ export function RootLayout() {
       <TopBar />
       <Outlet />
       <Footer />
+      <CallFloat />
       <WhatsAppFloat />
     </>
   );

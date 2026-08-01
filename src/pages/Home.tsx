@@ -1,6 +1,6 @@
 import { Hero } from "../components/Hero";
 import { MarqueeScroller } from "../components/MarqueeScroller";
-import { TrustStrip } from "../components/sections/TrustStrip";
+import { AboutUs } from "../components/sections/AboutUs";
 import { PathSplit } from "../components/sections/PathSplit";
 import { SolutionsCondensed } from "../components/sections/SolutionsCondensed";
 import { Calculator } from "../components/sections/Calculator";
@@ -34,7 +34,7 @@ export function Home() {
         <MarqueeScroller />
       </header>
       <main>
-        <TrustStrip />
+        <AboutUs />
         <PathSplit />
         {/*
           Belongs to the install branch, so it sits below the fork rather than

@@ -13,14 +13,3 @@ export const heroCopy = {
     "Rooftop and ground-mounted solar plants installed across Uttarakhand, plus multi-brand panels, inverters and balance-of-system supplied direct to installers and contractors.",
   primaryCta: "Book a site survey",
 } as const;
-
-// The hero action row (the floating pill) is no longer navigation — it states
-// the home page's primary job: the two path-split routes. Short labels are for
-// small screens, where the full ones would wrap the pill to two lines.
-export const heroActions = {
-  paths: [
-    { label: "Get solar installed", short: "Install", to: "/install" },
-    { label: "Buy solar products", short: "Products", to: "/products" },
-  ],
-  cta: { label: "Get in touch", to: "/contact" },
-} as const;
