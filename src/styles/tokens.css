@@ -1,0 +1,56 @@
+/* Dev Bhoomi Enterprises — brand token layer
+   Consumed by index.css. Tailwind v4 CSS-first config. */
+
+@theme {
+  /* Palette — derived from logo. Blue structural, amber for action only. */
+  --color-solar-amber:      #F5A81C;
+  --color-solar-amber-deep: #D98E0B;
+  --color-panel-blue:       #2E86AB;
+  --color-panel-blue-deep:  #1B5A78;
+  --color-ink:              #0A1B33;
+  --color-ink-muted:        #64748B;
+  --color-surface:          #FDFBF7;
+  --color-surface-raised:   #FFFFFF;
+
+  /* Type */
+  --font-sans:    "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --hairline: rgba(148, 163, 184, 0.25);
+}
+
+body {
+  background: var(--color-surface);
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+}
+
+/* Always tabular for money and capacity figures. */
+.tnum { font-variant-numeric: tabular-nums; }
+
+/* Marquee — pure CSS keyframes per reference spec. */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee-scroll 40s linear infinite; }
+.marquee-viewport:hover .marquee-track { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee-track { animation: none; }
+}
+
+/* Quality floor: visible keyboard focus everywhere. */
+:focus-visible {
+  outline: 2px solid var(--color-panel-blue);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
