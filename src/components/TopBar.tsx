@@ -56,27 +56,26 @@ export function TopBar() {
       )}
     >
       <div className="site-header-grid mx-auto w-full max-w-[1400px] px-4 py-3 md:h-20 md:px-10 md:py-0">
-        {/* Logo — compact mark on mobile, full lockup from md up. */}
+        {/* Logo — use full lockup on all sizes, scaled down on mobile to fit alongside nav. */}
         <Link to="/" className="site-header-logo flex shrink-0 items-center" aria-label={`${company.name} — home`}>
-          <img src="/assets/logo/devbhoomi-mark.png" alt="" width={160} height={160} className="h-9 w-auto md:hidden" />
           <img
             src="/assets/logo/devbhoomi-logo.png"
             alt=""
             width={560}
             height={316}
-            className="hidden h-12 w-auto md:block"
+            className="h-8 md:h-12 w-auto"
           />
         </Link>
 
-        {/* Expanding-pill navigation. */}
-        <nav aria-label="Primary" className="site-header-pill flex w-fit max-w-full items-center gap-0.5 rounded-full bg-ink p-1.5">
+        {/* Expanding-pill navigation. Reduced size on mobile to share row with full logo. */}
+        <nav aria-label="Primary" className="site-header-pill flex w-fit max-w-full items-center gap-0.5 rounded-full bg-ink p-1 md:p-1.5">
           {NAV.map(({ label, to, Icon, end }) => (
             <NavLink
               key={to}
               to={to}
               end={end}
               aria-label={label}
-              className="group relative flex h-11 min-w-11 items-center justify-center rounded-full px-2.5 outline-none focus-visible:ring-2 focus-visible:ring-white/70 sm:px-3"
+              className="group relative flex h-9 min-w-9 md:h-11 md:min-w-11 items-center justify-center rounded-full px-2 sm:px-3 outline-none focus-visible:ring-2 focus-visible:ring-white/70"
             >
               {({ isActive }) => (
                 <>
@@ -93,7 +92,7 @@ export function TopBar() {
                       strokeWidth={2}
                       aria-hidden="true"
                       className={cn(
-                        "h-[18px] w-[18px] shrink-0 transition-colors",
+                        "h-[16px] w-[16px] md:h-[18px] md:w-[18px] shrink-0 transition-colors",
                         isActive ? "text-white" : "text-white/55 group-hover:text-white",
                       )}
                     />
@@ -107,7 +106,7 @@ export function TopBar() {
                           transition={move}
                           className="overflow-hidden"
                         >
-                          <span className="whitespace-nowrap pl-2 pr-0.5 text-[13px] font-semibold text-white">
+                          <span className="whitespace-nowrap pl-1.5 pr-0.5 md:pl-2 text-[12px] md:text-[13px] font-semibold text-white">
                             {label}
                           </span>
                         </motion.span>
