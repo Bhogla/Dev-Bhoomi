@@ -15,6 +15,10 @@ export function SolutionsCondensed() {
   return (
     <Section
       id="solutions"
+      // Gallery and this section share the "surface" tone, so their py-28
+      // paddings would otherwise stack into a large empty gap. Pull this one up
+      // to leave ~130px (desktop) between the gallery dots and the heading.
+      className="-mt-16 md:-mt-24"
       eyebrow="Who we work for"
       title="Four buyers, four different problems"
       lede="A homeowner asks about subsidy. A factory asks about uptime. Each is answered in its own place."

@@ -4,6 +4,7 @@ import { AboutUs } from "../components/sections/AboutUs";
 import { PathSplit } from "../components/sections/PathSplit";
 import { SolutionsCondensed } from "../components/sections/SolutionsCondensed";
 import { Calculator } from "../components/sections/Calculator";
+import { Gallery } from "../components/sections/Gallery";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 /**
@@ -25,11 +26,11 @@ export function Home() {
         larger top pad pushed the 600px container past the fold. Keep the top
         thin — if the bar grows again, take it out of this padding, never the
         hero's height.
-        Bottom padding matches the section scale (space.section), so the gap
-        from the marquee to the first section is the same even rhythm that runs
-        between every section below. Container height and radius are untouched.
+        Bottom padding is deliberately small: with AboutUs's top padding it
+        leaves ~64px (mobile) / ~80px (desktop) from the marquee to the About Us
+        heading. Container height and radius are untouched.
       */}
-      <header className="w-full px-4 pt-5 pb-20 md:pt-6 md:pb-28">
+      <header className="w-full px-4 pt-3 pb-6 md:pt-2 md:pb-8">
         <Hero />
         <MarqueeScroller />
       </header>
@@ -42,6 +43,8 @@ export function Home() {
           /install, not to answer everything.
         */}
         <Calculator variant="compact" />
+        {/* Team photos sit just above "Who we work for". */}
+        <Gallery />
         <SolutionsCondensed />
       </main>
     </>

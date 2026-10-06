@@ -2,9 +2,10 @@
 
 This is the client-supplied specification, preserved verbatim. It is the authority on layout, class names, and motion for the hero section and marquee. Where it conflicts with the brand layer in `PROJECT-BRIEF.md`, **this spec wins on structure and styling; the brief wins on colour, copy, and content.**
 
-Two documented deviations, both required by the brand:
+Three documented deviations, required by the brand or the client:
 1. **Body background** — spec says `#f9fafb`; use `--surface` `#FDFBF7` instead. Warm off-white keeps the amber from glaring.
 2. **Marquee logos** — spec supplies eight SaaS brand logos (Shopify, Figma, Spotify etc.) as placeholders. Replace with the solar manufacturer brands Dev Bhoomi is authorized to trade, once confirmed. Card styling, gradient-on-hover behaviour, and the `group-hover:brightness-0 group-hover:invert` treatment stay exactly as specified. Until brands are confirmed, keep the spec's logos in place as visible placeholders.
+3. **Marquee card styling** — the rounded-full pill cards with borders and shadows were replaced at the client's request with a quiet, borderless logo band (hairline-ruled strip, logos sitting directly on the page); the greyscale→colour hover is preserved.
 
 ---
 

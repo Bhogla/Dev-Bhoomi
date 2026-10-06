@@ -12,7 +12,10 @@ export function AboutUs() {
 
   return (
     <section id="about" className="w-full scroll-mt-24">
-      <div className={cn("mx-auto w-full max-w-[1400px]", space.gutter, space.sectionCompact)}>
+      {/* Smaller top padding than the shared compact scale so the gap under the
+          marquee stays tight (~64px mobile / ~80px desktop); bottom keeps the
+          compact rhythm shared with the sections below. */}
+      <div className={cn("mx-auto w-full max-w-[1400px]", space.gutter, "pt-10 md:pt-12 pb-12 md:pb-16")}>
         <Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
             

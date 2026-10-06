@@ -55,15 +55,25 @@ export function TopBar() {
           : "border-transparent bg-transparent",
       )}
     >
-      <div className="site-header-grid mx-auto w-full max-w-[1400px] px-4 py-3 md:h-20 md:px-10 md:py-0">
-        {/* Logo — use full lockup on all sizes, scaled down on mobile to fit alongside nav. */}
+      <div
+        className={cn(
+          "site-header-grid mx-auto w-full max-w-[1400px] px-4 py-2.5 md:px-10 md:py-0",
+          "transition-[height] duration-300",
+          scrolled ? "md:h-20" : "md:h-24",
+        )}
+      >
+        {/* Logo — full lockup, large enough that the wordmark reads. Shrinks on
+            scroll so the bar tightens, full size at the very top. */}
         <Link to="/" className="site-header-logo flex shrink-0 items-center" aria-label={`${company.name} — home`}>
           <img
             src="/assets/logo/devbhoomi-logo.png"
             alt=""
             width={560}
             height={316}
-            className="h-8 md:h-12 w-auto"
+            className={cn(
+              "w-auto shrink-0 transition-[height] duration-300",
+              scrolled ? "h-11 md:h-14" : "h-14 md:h-[72px]",
+            )}
           />
         </Link>
 
@@ -75,7 +85,7 @@ export function TopBar() {
               to={to}
               end={end}
               aria-label={label}
-              className="group relative flex h-9 min-w-9 md:h-11 md:min-w-11 items-center justify-center rounded-full px-2 sm:px-3 outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+              className="group relative flex h-9 min-w-8 md:h-11 md:min-w-11 items-center justify-center rounded-full px-1.5 sm:px-3 outline-none focus-visible:ring-2 focus-visible:ring-white/70"
             >
               {({ isActive }) => (
                 <>
