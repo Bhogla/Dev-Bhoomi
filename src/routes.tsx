@@ -9,9 +9,24 @@ import { Home } from "./pages/Home";
  * Home is eager (it is the entry point and owns LCP); the rest are lazily
  * chunked so the first load does not carry the calculator, catalogue and map.
  */
+
+/**
+ * Shown during the very first render when the landing route is a lazy chunk
+ * still being fetched (e.g. opening /about directly). Without it React Router
+ * warns that no `HydrateFallback` was provided. Quiet, on-brand, brief.
+ */
+function RouteFallback() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-surface" role="status" aria-label="Loading">
+      <span className="h-6 w-6 animate-spin rounded-full border-2 border-slate-200 border-t-panel-blue" />
+    </div>
+  );
+}
+
 export const router = createBrowserRouter([
   {
     element: <RootLayout />,
+    hydrateFallbackElement: <RouteFallback />,
     children: [
       { index: true, element: <Home /> },
       { path: "install", lazy: async () => ({ Component: (await import("./pages/Install")).Install }) },
