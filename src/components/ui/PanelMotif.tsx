@@ -2,9 +2,10 @@ import { cn } from "../../lib/utils";
 
 /**
  * The logo's curved panel array — the one reusable graphic device.
- * Budgeted to three appearances sitewide. Used here in section 7 (process
- * cells filling on scroll) and once in the footer as a low-opacity outline.
- * Do not use as background texture, bullet icon, or section divider.
+ * Budgeted to three appearances sitewide: Process (cells filling on scroll),
+ * Leadership (low-opacity outline behind the director portrait), and the
+ * Footer (low-opacity outline). Do not use as background texture, bullet
+ * icon, or section divider.
  */
 export function PanelMotif({
   className,

@@ -39,11 +39,11 @@ export function Process() {
       <div ref={ref} className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-20">
         <Reveal className="lg:sticky lg:top-24 lg:self-start">
           {/*
-            Motif appearance 2 of 3 (footer is the third; the hero's is
-            unavailable since that component is protected). Given the budget
-            is underspent, it fills its column here rather than sitting as a
-            320px thumbnail — this is the one place it is meant to carry the
-            section, and the cells filling on scroll are the whole point.
+            Motif: one of three appearances sitewide — Process (here),
+            Leadership (behind the director portrait), and the Footer. This is
+            the one place it is meant to carry the section, so it fills its
+            column rather than sitting as a 320px thumbnail, and the cells
+            filling on scroll are the whole point.
           */}
           <div className="rounded-[32px] border border-slate-200/60 bg-surface p-8 shadow-[0_24px_60px_-24px_rgba(10,27,51,0.06)] md:p-10">
             <PanelMotif filled={filled} className="w-full" />

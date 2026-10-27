@@ -4,6 +4,7 @@ import { company, positioning, capabilities, turnover, trustStrip, services, tra
 import { PageHero } from "../components/PageHero";
 import { Section } from "../components/ui/Section";
 import { Reveal } from "../components/ui/Reveal";
+import { DirectorProfile } from "../components/sections/DirectorProfile";
 import { ConfirmNotice } from "../components/ui/ConfirmBadge";
 import { usePageMeta } from "../hooks/usePageMeta";
 import { type as t, button } from "../lib/design";
@@ -195,6 +196,8 @@ export function About() {
           </div>
           </div>
         </Section>
+
+        <DirectorProfile />
 
         <Section
           id="services"
